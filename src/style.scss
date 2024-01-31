@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#main-page{
+    color: #000;
+    font-weight: bold;
+    background-color: #D6D1CD;
+    min-height: 100vh;
+    font-family: 'Poppins';
+    display: grid;
+    place-items: center;
+}
+
+
+.container{
+    width: 80vw;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1{
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 30px;
+
+        @media (max-width: 800px) {
+            font-size: 30px;
+        }
+    }
+
+    .top{
+        display: flex;
+        gap: 10px;
+        .select{
+            flex: 1;
+            color: black;
+        }
+    }
+
+    .middle{
+        display: flex;
+        gap: 105px;
+        margin-top: 20px;
+
+        @media(max-width: 800px){
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        div{
+            position: relative;
+            flex: 1;
+
+            .wrapper{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%,-50%);
+            }
+
+            textarea{
+                width: 100%;
+                min-height: 300px;
+                max-height: 500px;
+                padding: 10px;
+                font-size: 20px;
+                border-radius: 5px;
+                resize: none;
+                font-family: 'poppins';
+    
+                &:disabled {
+                    color: rgb(68, 58, 58);
+                }
+            }
+        }
+    }
+
+    .bottom{
+        display: flex;
+        justify-content: center;
+        button{
+            margin-top: 30px;
+        }
+    }
+}
+
+
+button{
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #1a1a1a;
+    cursor: pointer;
+    border: 1px solid transparent;
+    outline: none;
+    color: white;
+
+    &:hover{
+        border: 1px solid #8b8eb6;
+    }
+}
+
+
+//loader
+.loader {
+    width: 3em;
+    height: 3em;
+  }
+  
+  .loader__eye1,
+    .loader__eye2,
+    .loader__mouth1,
+    .loader__mouth2 {
+    animation: eye1 3s ease-in-out infinite;
+  }
+  
+  .loader__eye1,
+    .loader__eye2 {
+    transform-origin: 64px 64px;
+  }
+  
+  .loader__eye2 {
+    animation-name: eye2;
+  }
+  
+  .loader__mouth1 {
+    animation-name: mouth1;
+  }
+  
+  .loader__mouth2 {
+    animation-name: mouth2;
+    visibility: hidden;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: hsl(var(--hue), 90%, 10%);
+      --fg: hsl(var(--hue), 90%, 90%);
+    }
+  }
+  
+  @keyframes eye1 {
+    from {
+      transform: rotate(-260deg) translate(0, -56px);
+    }
+  
+    50%,
+      60% {
+      animation-timing-function: cubic-bezier(0.17, 0, 0.58, 1);
+      transform: rotate(-40deg) translate(0, -56px) scale(1);
+    }
+  
+    to {
+      transform: rotate(225deg) translate(0, -56px) scale(0.35);
+    }
+  }
+  
+  @keyframes eye2 {
+    from {
+      transform: rotate(-260deg) translate(0, -56px);
+    }
+  
+    50% {
+      transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+  
+    52.5% {
+      transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1, 0);
+    }
+  
+    55%,
+      70% {
+      animation-timing-function: cubic-bezier(0, 0, 0.28, 1);
+      transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+  
+    to {
+      transform: rotate(150deg) translate(0, -56px) scale(0.4);
+    }
+  }
+  
+  @keyframes eyeBlink {
+    from,
+      25%,
+      75%,
+      to {
+      transform: scaleY(1);
+    }
+  
+    50% {
+      transform: scaleY(0);
+    }
+  }
+  
+  @keyframes mouth1 {
+    from {
+      animation-timing-function: ease-in;
+      stroke-dasharray: 0 351.86;
+      stroke-dashoffset: 0;
+    }
+  
+    25% {
+      animation-timing-function: ease-out;
+      stroke-dasharray: 175.93 351.86;
+      stroke-dashoffset: 0;
+    }
+  
+    50% {
+      animation-timing-function: steps(1, start);
+      stroke-dasharray: 175.93 351.86;
+      stroke-dashoffset: -175.93;
+      visibility: visible;
+    }
+  
+    75%,
+      to {
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes mouth2 {
+    from {
+      animation-timing-function: steps(1, end);
+      visibility: hidden;
+    }
+  
+    50% {
+      animation-timing-function: ease-in-out;
+      visibility: visible;
+      stroke-dashoffset: 0;
+    }
+  
+    to {
+      stroke-dashoffset: -351.86;
+    }
+  }
+  
+  
